@@ -79,7 +79,6 @@ out/
 
 # Gatsby (if used)
 .cache/
-public
 
 # Storybook (if used)
 storybook-static
