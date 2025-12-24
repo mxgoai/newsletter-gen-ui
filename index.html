@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MXGo.AI Custom Newsletter Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="container">
+        <header class="header">
+            <svg class="header-icon" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <rect x="2" y="4" width="20" height="16" rx="2" />
+                <path d="m2 7 10 7 10-7" />
+            </svg>
+            <h1 class="header-title">MXGo.AI Custom Newsletter Generator</h1>
+            <p class="header-subtitle">Create professional newsletters in minutes</p>
+        </header>
+
+        <form id="newsletter-form" class="form">
+            <section class="form-section">
+                <h2 class="section-title">
+                    <svg class="section-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                        <polyline points="14 2 14 8 20 8" />
+                    </svg>
+                    Newsletter Inputs
+                </h2>
+
+                <div class="form-group">
+                    <label for="prompt" class="form-label">Prompt <span class="required">*</span></label>
+                    <textarea id="prompt" class="form-textarea" placeholder="Create an 800 word newsletter with latest news from healthcare industry and organize by sections:
+
+1. Regulatory changes: policy updates, State-level healthcare legislation
+2. Clinical updates: Treatment protocol changes, new medical device approvals, patient safety alerts
+3. Risk alerts: Potential compliance issues, security or privacy concerns, lawsuit updates
+
+Format: Bullet points with source links. Highlight urgent compliance items." rows="8" required></textarea>
+                    <p class="form-hint">
+                        <svg class="hint-icon" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="M12 16v-4" />
+                            <path d="M12 8h.01" />
+                        </svg>
+                        Specify how you want the newsletter to be formatted ex: Call to Actions, Bullet Points, Key
+                        Points, Categories, etc
+                    </p>
+                </div>
+
+                <div class="form-group">
+                    <label for="read-time" class="form-label">Estimated Read Time (minutes) <span
+                            class="required">*</span></label>
+                    <input type="number" id="read-time" class="form-input" placeholder="5" min="1" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="sources" class="form-label">Sources (names and/or links)</label>
+                    <input type="text" id="sources" class="form-input"
+                        placeholder="Modern Healthcare, Healthcare Dive, CMS.gov, FDA.gov, AHA News, Becker's Hospital Review, and state health department bulletins for California, Texas, New York, Florida" />
+                </div>
+
+                <div class="form-group">
+                    <label for="locations" class="form-label">Geographic Locations</label>
+                    <input type="text" id="locations" class="form-input" placeholder="North America" />
+                </div>
+
+                <div class="form-group">
+                    <label for="schedule-type" class="form-label">When do you want the newsletter? <span
+                            class="required">*</span></label>
+                    <select id="schedule-type" class="form-select" required>
+                        <option value="immediate">Send immediately</option>
+                        <option value="specific">Send on a specific date</option>
+                        <option value="recurring">Schedule recurring (weekly)</option>
+                    </select>
+                </div>
+
+                <!-- Specific Date and Time Section -->
+                <div id="specific-datetime" class="datetime-section hidden">
+                    <h3 class="subsection-title">Schedule Options</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="specific-date" class="form-label">Date</label>
+                            <input type="date" id="specific-date" class="form-input" />
+                        </div>
+                        <div class="form-group">
+                            <label for="specific-time" class="form-label">Time</label>
+                            <input type="time" id="specific-time" class="form-input" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Custom Recurring Section -->
+                <div id="custom-recurring" class="datetime-section hidden">
+                    <h3 class="subsection-title">Schedule Options</h3>
+                    <div class="form-group">
+                        <label class="form-label">Select day/s</label>
+                        <div class="weekday-grid">
+                            <button type="button" class="weekday-btn" data-day="0">Monday</button>
+                            <button type="button" class="weekday-btn" data-day="1">Tuesday</button>
+                            <button type="button" class="weekday-btn" data-day="2">Wednesday</button>
+                            <button type="button" class="weekday-btn" data-day="3">Thursday</button>
+                            <button type="button" class="weekday-btn" data-day="4">Friday</button>
+                            <button type="button" class="weekday-btn" data-day="5">Saturday</button>
+                            <button type="button" class="weekday-btn" data-day="6">Sunday</button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="recurring-time" class="form-label">Time</label>
+                        <input type="time" id="recurring-time" class="form-input" />
+                    </div>
+                </div>
+            </section>
+
+            <div class="form-actions">
+                <button type="button" id="submit-btn" class="btn btn-primary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                    </svg>
+                    Create Newsletter
+                </button>
+            </div>
+        </form>
+
+        <!-- Message Container -->
+        <div id="message-container" class="message-container hidden"></div>
+
+        <footer class="footer">
+            <svg class="footer-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <rect x="2" y="4" width="20" height="16" rx="2" />
+                <path d="m2 7 10 7 10-7" />
+            </svg>
+            <p class="footer-text">Follow us on</p>
+            <div class="social-icons">
+                <a href="#" aria-label="Instagram" class="social-link">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                    </svg>
+                </a>
+                <a href="#" aria-label="X (Twitter)" class="social-link">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                    </svg>
+                </a>
+                <a href="#" aria-label="GitHub" class="social-link">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path
+                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                    </svg>
+                </a>
+            </div>
+            <p class="footer-links">
+                <a href="#" class="footer-link">Open Source</a> |
+                <a href="#" class="footer-link">Documentation</a> |
+                <a href="#" class="footer-link">Contribute</a>
+            </p>
+            <p class="footer-copyright">© 2025 Zobyt Technologies Pvt. Ltd. All rights reserved.</p>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
