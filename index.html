@@ -9,7 +9,21 @@
 </head>
 
 <body>
-    <main class="container">
+    <div id="login-container" class="container">
+        <header class="header">
+            <svg class="header-icon" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                <path d="m2 7 10 7 10-7"></path>
+            </svg>
+            <h1 class="header-title">MXGo.AI Custom Newsletter Generator</h1>
+            <p class="header-subtitle">Please log in to continue</p>
+            <button type="button" id="login-btn" class="btn btn-primary" style="margin-top: 1.5rem;">
+                Login with Google
+            </button>
+        </header>
+    </div>
+    <main id="app-container" class="container hidden">
         <header class="header">
             <svg class="header-icon" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                 stroke-width="2">
@@ -18,6 +32,11 @@
             </svg>
             <h1 class="header-title">MXGo.AI Custom Newsletter Generator</h1>
             <p class="header-subtitle">Create professional newsletters in minutes</p>
+            <div id="user-info" class="hidden" style="margin-top: 1rem; font-size: 0.875rem;">
+                <p id="user-email" style="margin-bottom: 0.5rem;"></p>
+                <button type="button" id="logout-btn" class="btn"
+                    style="width: auto; padding: 0.5rem 1rem;">Logout</button>
+            </div>
         </header>
 
         <form id="newsletter-form" class="form">
@@ -166,6 +185,7 @@ Format: Bullet points with source links. Highlight urgent compliance items." row
         </footer>
     </main>
 
+    <script src="config.js"></script>
     <script src="script.js"></script>
 </body>
 
