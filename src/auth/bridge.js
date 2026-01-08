@@ -51,11 +51,11 @@ export function createAuthMessageHandler({
             return;
         }
 
-        if (authPopup && event.source && event.source !== authPopup) {
+        if (event.data?.source && event.data.source !== "mxgo") {
             return;
         }
 
-        if (event.data?.source && event.data.source !== "mxgo") {
+        if (authPopup && event.source && event.source !== authPopup) {
             return;
         }
 
