@@ -1,7 +1,12 @@
+function getStoredTokenOrNull(key) {
+    const value = localStorage.getItem(key);
+    return typeof value === "string" ? value : null;
+}
+
 export function createSessionStore() {
     return {
-        accessToken: localStorage.getItem("accessToken"),
-        refreshToken: localStorage.getItem("refreshToken"),
+        accessToken: getStoredTokenOrNull("accessToken"),
+        refreshToken: getStoredTokenOrNull("refreshToken"),
     };
 }
 
