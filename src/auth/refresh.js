@@ -46,7 +46,8 @@ export async function refreshSessionIfNeeded(session, saveSessionTokensFn, clear
 
         saveSessionTokensFn(data.access_token, data.refresh_token);
         return true;
-    } catch {
+    } catch (error) {
+        console.error("Failed to refresh Supabase session:", error);
         return !!session.accessToken;
     }
 }
