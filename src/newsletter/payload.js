@@ -31,11 +31,19 @@ export function buildScheduleObject(state) {
     }
 }
 
+function parseEstimatedReadTime(inputValue) {
+    const parsed = parseInt(inputValue, 10);
+    if (Number.isNaN(parsed) || parsed === 0) {
+        return null;
+    }
+    return parsed;
+}
+
 export function buildPayload(state) {
     return {
         request_id: generateUUID(),
         prompt: document.getElementById("prompt").value.trim(),
-        estimated_read_time: parseInt(document.getElementById("read-time").value, 10) || null,
+        estimated_read_time: parseEstimatedReadTime(document.getElementById("read-time").value),
         sources: document
             .getElementById("sources")
             .value.trim()
