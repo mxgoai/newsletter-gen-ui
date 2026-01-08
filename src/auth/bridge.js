@@ -71,7 +71,11 @@ export function createAuthMessageHandler({
             showMessage("Logged in successfully!", "success");
             try {
                 if (authPopup && !authPopup.closed) authPopup.close();
-            } catch { }
+            } catch (error) {
+                // Log the error to aid debugging while keeping user-facing behavior unchanged.
+                // This is intentionally non-fatal, as failure to close the popup is not critical.
+                console.error("Failed to close auth popup window:", error);
+            }
             authPopup = null;
         }
     };
