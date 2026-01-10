@@ -1,5 +1,5 @@
 import { generateUUID } from "../utils/uuid.js";
-import { combineDateTimeToISO, convertLocalTimeToUTC } from "../utils/datetime.js";
+import { combineDateTimeToISO, convertLocalScheduleToUTC } from "../utils/datetime.js";
 
 export function buildScheduleObject(state) {
     switch (state.scheduleType) {
@@ -18,11 +18,11 @@ export function buildScheduleObject(state) {
 
         case "recurring": {
             const localTime = document.getElementById("recurring-time").value || "09:00";
-            const utcTime = convertLocalTimeToUTC(localTime);
+            const utcSchedule = convertLocalScheduleToUTC(state.selectedDays, localTime);
             return {
                 type: "RECURRING_WEEKLY",
                 specific_datetime: null,
-                weekly_schedule: { days: state.selectedDays.sort(), time: utcTime },
+                weekly_schedule: { days: utcSchedule.days, time: utcSchedule.time },
             };
         }
 
@@ -57,7 +57,7 @@ export function buildPayload(state) {
     return {
         request_id: generateUUID(),
         prompt: document.getElementById("prompt").value.trim(),
-        estimated_read_time: parseInt(document.getElementById("read-time").value, 10) || null,
+        estimated_read_time: parseEstimatedReadTime(document.getElementById("read-time").value),
         sources: sourcesArray.length > 0 ? sourcesArray : null,
         geographic_locations: locationsArray.length > 0 ? locationsArray : null,
         formatting_instructions: null,
