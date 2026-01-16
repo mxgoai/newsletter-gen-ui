@@ -3,7 +3,10 @@ import { getJwtExpMs } from "../utils/jwt.js";
 let refreshTimer = null;
 
 function getSupabaseConfig() {
-    return window.SUPABASE_CONFIG || null;
+    return {
+        URL: import.meta.env.VITE_SUPABASE_URL,
+        ANON_KEY: import.meta.env.VITE_SUPABASE_ANON_KEY,
+    };
 }
 
 export async function refreshSessionIfNeeded(session, saveSessionTokensFn, clearSessionTokensFn, force = false) {
