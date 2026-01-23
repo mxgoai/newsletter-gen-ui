@@ -1,11 +1,21 @@
 :root {
-  --primary-color: #4f46e5;
-  --primary-hover: #4338ca;
+  /* Brand Colors from Color-scheme.svg */
+  --primary-color: #447abc;
+  --primary-hover: #3a6aa6;
+  --primary-light: #dbe3ef;
+  
+  /* Text Colors */
   --text-primary: #111827;
-  --text-secondary: #6b7280;
-  --border-color: #d1d5db;
+  --text-secondary: #778da9;
+  --text-muted: #99a8b5;
+  
+  /* Background Colors */
   --bg-white: #ffffff;
   --bg-gray: #f9fafb;
+  --bg-light: #dbe3ef;
+  
+  /* Accent Colors */
+  --border-color: #d1d5db;
   --orange: #fb923c;
   --blue: #60a5fa;
   --purple: #c084fc;
@@ -13,17 +23,27 @@
   --error: #ef4444;
   --warning: #f59e0b;
 
-  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+  /* Typography */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
     "Droid Sans", "Helvetica Neue", sans-serif;
+  
+  /* Spacing */
   --spacing-xs: 0.25rem;
   --spacing-sm: 0.5rem;
   --spacing-md: 1rem;
   --spacing-lg: 1.5rem;
   --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+  
+  /* Border Radius */
   --border-radius: 0.5rem;
   --border-radius-sm: 0.375rem;
+  --border-radius-lg: 1rem;
+  
+  /* Transitions - subtle only */
   --transition: all 0.2s ease;
 }
+
 
 * {
   margin: 0;
@@ -50,9 +70,65 @@ body {
 .header {
   text-align: center;
   margin-bottom: var(--spacing-xl);
+  width: 100%;
+  padding: 24px 0;
 }
 
+/* User Info Panel */
+#user-info {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  justify-content: space-between;
+
+  /* Pill Appearance */
+  background: var(--bg-white);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border: 1px solid var(--border-color);
+}
+
+/* email text */
+#user-email {
+  margin: 0;
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* logout button */
+#logout-btn {
+  max-width: 140px;
+  background: var(--bg-gray);
+  border: 1px solid transparent;
+  color: var(--text-primary);
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+#logout-btn:hover {
+  background: var(--error);
+  color: white;
+  border-color: var(--error);
+}
+
+
 .header-icon {
+  margin: 0 auto var(--spacing-md);
+  display: block;
+  color: var(--primary-color);
+}
+
+.header-logo {
+  width: 256px;
+  height: auto;
   margin: 0 auto var(--spacing-md);
   display: block;
 }
@@ -71,10 +147,11 @@ body {
 /* Form */
 .form {
   background: var(--bg-white);
-  border: 2px solid var(--text-primary);
-  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
   padding: var(--spacing-xl);
   margin-bottom: var(--spacing-xl);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 .form-section {
@@ -90,10 +167,12 @@ body {
   margin-bottom: var(--spacing-lg);
   padding-bottom: var(--spacing-sm);
   border-bottom: 1px solid var(--border-color);
+  color: var(--primary-color);
 }
 
 .section-icon {
   flex-shrink: 0;
+  color: var(--primary-color);
 }
 
 .form-group {
@@ -121,6 +200,13 @@ body {
   font-family: inherit;
   font-size: 0.875rem;
   transition: var(--transition);
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder,
+.form-select::placeholder {
+  color: #adadad; /* Lighter placeholder */
+  opacity: 1; /* Firefox fix */
 }
 
 .form-input:focus,
@@ -378,8 +464,38 @@ body {
 
 /* Footer */
 .footer {
+  position: relative;
+  background: var(--bg-white);
+  border-top: 1px solid var(--border-color);
+  margin-top: auto;
+
+  /* Layout */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-sm);
   text-align: center;
-  padding: var(--spacing-xl) 0;
+
+  padding: var(--spacing-2xl) var(--spacing-md);
+  overflow: hidden;
+}
+
+/* Keep footer content above banner */
+.footer > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Banner Background */
+.footer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("./src/assets/Social-Media-Banner.svg") center bottom no-repeat;
+  background-size: cover;
+  opacity: 1;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .footer-icon {
@@ -401,12 +517,20 @@ body {
 }
 
 .social-link {
-  color: var(--text-primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--bg-light);
+  color: var(--primary-color);
   transition: var(--transition);
 }
 
 .social-link:hover {
-  color: var(--primary-color);
+  background: var(--primary-color);
+  color: white;
 }
 
 .footer-links {
@@ -427,6 +551,7 @@ body {
 .footer-copyright {
   font-size: 0.75rem;
   color: var(--text-secondary);
+  margin-top: var(--spacing-md);
 }
 
 /* Utility Classes */
@@ -434,7 +559,7 @@ body {
   display: none !important;
 }
 
-/* Responsive */
+/* Responsive - Mobile First */
 @media (max-width: 640px) {
   .container {
     padding: var(--spacing-md) var(--spacing-sm);
@@ -456,4 +581,190 @@ body {
   .weekday-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* ================================
+   SPLIT LAYOUT - Desktop View
+   ================================ */
+
+.landing-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Info Panel (Left side on desktop) */
+.info-panel {
+  background: var(--bg-light);
+  color: var(--text-primary);
+  padding: var(--spacing-2xl);
+  display: none; /* Hidden on mobile */
+  border-right: 1px solid var(--border-color);
+}
+
+.info-panel .brand-section{
+  margin-bottom: var(--spacing-xl);
+  text-align: center; /* Center align brand for better impact */
+}
+
+.brand-logo {
+  width: 120px; /* Increased size ("taller") */
+  height: auto;
+  display: block; /* Ensure correct flex behavior */
+}
+
+.brand-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm); /* Closer spacing */
+}
+
+.brand-name {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1; /* Tightest line-height for accurate centering */
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.brand-name span {
+  color: var(--primary-color);
+}
+
+.brand-tagline {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--primary-color); /* Brand color for tagline */
+  margin-top: var(--spacing-sm);
+  line-height: 1.4;
+}
+
+/* Features List */
+.features-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--spacing-xl) 0;
+}
+
+.features-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+
+.features-list .feature-icon {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.features-list .feature-text strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: var(--text-primary);
+}
+
+.features-list .feature-text span {
+  color: var(--text-secondary);
+  font-size: 0.95rem; /* Slightly larger for readability */
+}
+
+/* Form Panel (Right side on desktop) */
+.form-panel {
+  flex: 1;
+  background: var(--bg-gray);
+}
+
+/* Desktop Layout - Side by Side */
+@media (min-width: 992px) {
+  .landing-wrapper {
+    flex-direction: row;
+  }
+  
+  .info-panel {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    max-width: 480px;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+  }
+  
+  .form-panel {
+    width: 60%;
+    flex: 1;
+    overflow-y: auto;
+    height: 100vh;
+  }
+  
+  .form-panel .container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: var(--spacing-2xl);
+  }
+}
+
+/* ================================
+   GET STARTED BUTTON
+   ================================ */
+
+.btn-get-started {
+  font-size: 1rem;
+  padding: var(--spacing-md) var(--spacing-xl);
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  background: var(--bg-white);
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+}
+
+.btn-get-started:hover:not(:disabled) {
+  background: var(--primary-light);
+  border-color: var(--primary-hover);
+  color: var(--primary-hover);
+}
+
+.btn-get-started::after {
+  content: ' →';
+}
+
+/* ================================
+   CREATE BUTTON WITH LOGO
+   ================================ */
+
+.btn-create {
+  position: relative;
+  background: var(--bg-white);
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+}
+
+.btn-create:hover:not(:disabled) {
+  background: var(--primary-light);
+  border-color: var(--primary-hover);
+  color: var(--primary-hover);
+}
+
+.btn-logo {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+/* Outline Button */
+.btn-outline {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+}
+
+.btn-outline:hover:not(:disabled) {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
 }
