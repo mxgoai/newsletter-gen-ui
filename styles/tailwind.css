@@ -1,0 +1,203 @@
+@import "./app.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* app.css */
+:root {
+  color-scheme: light;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: #f3f4f6;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #9ca3af;
+  font-size: 0.875rem;
+}
+
+.custom-shadow {
+  box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.04);
+}
+
+.message-container {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  z-index: 50;
+  max-width: min(360px, calc(100vw - 2rem));
+  border-radius: 1.25rem;
+  padding: 0.75rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  box-shadow: 0 20px 35px -20px rgba(15, 23, 42, 0.35);
+}
+
+@media (max-width: 640px) {
+  .message-container {
+    right: 1rem;
+    bottom: 1rem;
+  }
+}
+
+.message-container.success {
+  background: rgba(16, 185, 129, 0.12);
+  color: #047857;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.message-container.error {
+  background: rgba(239, 68, 68, 0.1);
+  color: #b91c1c;
+  border: 1px solid rgba(239, 68, 68, 0.25);
+}
+
+.weekday-btn {
+  border: 1px solid #e5e7eb;
+  background: #f9fafb;
+  color: #6b7280;
+  border-radius: 1.5rem;
+  padding: 0.5rem 0.9rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  transition: all 0.2s ease;
+}
+
+.weekday-btn:hover {
+  border-color: #3b82f6;
+  color: #2563eb;
+}
+
+.weekday-btn.active {
+  background: rgba(59, 130, 246, 0.12);
+  border-color: #3b82f6;
+  color: #2563eb;
+}
+
+.btn-loading {
+  opacity: 0.7;
+  cursor: progress;
+}
+
+.select-custom {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%236b7280'%3E%3Cpath d='M5.5 7.5 10 12l4.5-4.5' stroke='%236b7280' stroke-width='1.6' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1.25rem center;
+  background-size: 14px;
+  padding-right: 2.75rem;
+}
+
+.progress-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-bar {
+  position: absolute;
+  inset: 0;
+  width: 0%;
+  background: linear-gradient(120deg, #dbeafe 0%, #bfdbfe 100%);
+  transition: width 0.4s ease;
+}
+
+.progress-card.complete {
+  border-color: rgba(34, 197, 94, 0.35);
+  background: rgba(236, 253, 245, 0.9);
+}
+
+.progress-card.complete .progress-bar {
+  background: linear-gradient(120deg, #bbf7d0 0%, #86efac 100%);
+}
+
+.progress-card.complete .text-blue-500 {
+  color: #16a34a;
+}
+
+.progress-card.complete .material-symbols-outlined {
+  animation: pop 0.6s ease;
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.feature-card {
+  padding: 1.25rem;
+  border-radius: 1.75rem;
+  background: #ffffff;
+  border: 1px solid #f3f4f6;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.04);
+}
+
+.feature-icon {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 9999px;
+  background: #eff6ff;
+  color: #3b82f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.social-link {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 9999px;
+  border: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+  transition: all 0.2s ease;
+}
+
+.social-link:hover {
+  color: #3b82f6;
+  border-color: #bfdbfe;
+}
+
+.below-fold {
+  content-visibility: auto;
+  contain-intrinsic-size: 800px;
+}
+
+@media (min-width: 640px) {
+  .feature-card {
+    padding: 1.5rem;
+    border-radius: 2rem;
+  }
+
+  .feature-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .social-link {
+    width: 2.25rem;
+    height: 2.25rem;
+  }
+}

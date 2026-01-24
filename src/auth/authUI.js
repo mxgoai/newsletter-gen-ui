@@ -7,12 +7,15 @@ export function updateUIForAuthState(elements, session) {
         elements.loginBtn.classList.add("hidden");
         elements.submitBtn.classList.remove("hidden");
         elements.userInfo.classList.remove("hidden");
+        if (elements.plansLoginBtn) {
+            elements.plansLoginBtn.classList.add("hidden");
+        }
 
         const decodedToken = parseJwt(session.accessToken);
         if (decodedToken && decodedToken.email) {
             elements.userEmail.textContent = `Logged in as: ${decodedToken.email}`;
         }
-        
+
         // Legacy container handling (for compatibility)
         elements.loginContainer.classList.add("hidden");
         elements.appContainer.classList.add("hidden");
@@ -23,7 +26,13 @@ export function updateUIForAuthState(elements, session) {
         elements.submitBtn.classList.add("hidden");
         elements.userInfo.classList.add("hidden");
         elements.userEmail.textContent = "";
-        
+        if (elements.profileMenu) {
+            elements.profileMenu.classList.add("hidden");
+        }
+        if (elements.plansLoginBtn) {
+            elements.plansLoginBtn.classList.remove("hidden");
+        }
+
         // Legacy container handling (for compatibility)
         elements.loginContainer.classList.add("hidden");
         elements.appContainer.classList.add("hidden");

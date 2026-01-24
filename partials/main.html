@@ -1,0 +1,267 @@
+<main
+  class="order-2 lg:order-none lg:flex-1 bg-white border border-gray-50 rounded-[2rem] sm:rounded-[2.5rem] lg:rounded-[3rem] p-5 sm:p-8 md:p-10 lg:p-12 custom-shadow border-2"
+>
+  <div class="flex items-center justify-between mb-10">
+    <div>
+      <p
+        class="text-[10px] sm:text-[11px] text-gray-400 font-medium uppercase tracking-[0.3em]"
+      >
+        KnowsLetter
+      </p>
+      <h2 class="text-xl sm:text-2xl font-extrabold text-gray-900">
+        Newsletter Generator
+      </h2>
+      <p
+        class="text-[10px] sm:text-[11px] text-gray-400 font-medium mt-1"
+      >
+        Provide your inputs and schedule delivery in minutes.
+      </p>
+    </div>
+  </div>
+
+  <form id="newsletter-form" class="space-y-8 sm:space-y-10">
+    <section>
+      <div class="flex items-center gap-3 mb-6">
+        <span class="material-symbols-outlined text-gray-400"
+          >edit_note</span
+        >
+        <div>
+          <h2
+            class="font-extrabold text-base sm:text-lg text-gray-800"
+          >
+            Newsletter
+            <span class="text-gray-400">inputs</span>
+          </h2>
+          <p
+            class="text-[10px] sm:text-[11px] text-gray-400 font-medium"
+          >
+            Define what to generate and how it should look.
+          </p>
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-2">
+        <label
+          for="prompt"
+          class="text-sm font-bold text-gray-700 ml-1"
+        >
+          Prompt <span class="text-red-500">*</span>
+        </label>
+        <textarea
+          id="prompt"
+          class="w-full bg-gray-50/80 border border-gray-100 rounded-2xl px-5 py-4 text-sm focus:outline-none focus:ring-4 focus:ring-blue-100 ring-4 ring-blue-100 transition-all min-h-[160px] sm:min-h-[180px]"
+          placeholder="Create an 800 word newsletter with latest news from healthcare industry and organize by sections:
+
+1. Regulatory changes: policy updates, State-level healthcare legislation
+2. Clinical updates: Treatment protocol changes, new medical device approvals, patient safety alerts
+3. Risk alerts: Potential compliance issues, security or privacy concerns, lawsuit updates
+
+Format: Bullet points with source links. Highlight urgent compliance items."
+          rows="8"
+          required
+        ></textarea>
+        <p class="text-[11px] text-gray-400 font-medium ml-1">
+          Specify how you want the newsletter to be formatted (CTAs,
+          bullet points, key points, categories, etc).
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mt-5">
+        <div class="flex flex-col gap-2">
+          <label
+            for="read-time"
+            class="text-sm font-bold text-gray-700 ml-1"
+          >
+            Estimated Read Time (minutes)
+            <span class="text-red-500">*</span>
+          </label>
+          <input
+            type="number"
+            id="read-time"
+            placeholder="5"
+            min="1"
+            class="w-full bg-gray-50/80 border border-gray-100 rounded-2xl px-5 py-3.5 text-sm focus:outline-none focus:ring-4 focus:ring-blue-100 transition-all"
+            required
+          />
+        </div>
+        <div class="flex flex-col gap-2">
+          <label
+            for="sources"
+            class="text-sm font-bold text-gray-700 ml-1"
+          >
+            Sources (names and/or links)
+          </label>
+          <input
+            type="text"
+            id="sources"
+            placeholder="Modern Healthcare, Healthcare Dive, CMS.gov, FDA.gov, AHA News, Becker's Hospital Review, and state health department bulletins for California, Texas, New York, Florida"
+            class="w-full bg-gray-50/80 border border-gray-100 rounded-2xl px-5 py-3.5 text-sm focus:outline-none focus:ring-4 focus:ring-blue-100 transition-all"
+          />
+        </div>
+      </div>
+
+      <div class="mt-5 flex flex-col gap-2">
+        <label
+          for="locations"
+          class="text-sm font-bold text-gray-700 ml-1"
+        >
+          Geographic Locations
+        </label>
+        <input
+          type="text"
+          id="locations"
+          placeholder="North America"
+          class="w-full bg-gray-50/80 border border-gray-100 rounded-2xl px-5 py-3.5 text-sm focus:outline-none focus:ring-4 focus:ring-blue-100 transition-all"
+        />
+      </div>
+    </section>
+
+    <div class="h-[1px] bg-gray-50"></div>
+
+    <section>
+      <div class="flex items-center gap-3 mb-6">
+        <span class="material-symbols-outlined text-gray-400"
+          >schedule</span
+        >
+        <div>
+          <h2
+            class="font-extrabold text-base sm:text-lg text-gray-800"
+          >
+            Delivery
+            <span class="text-gray-400">schedule</span>
+          </h2>
+          <p
+            class="text-[10px] sm:text-[11px] text-gray-400 font-medium"
+          >
+            Choose when your newsletter should be delivered.
+          </p>
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-2">
+        <label
+          for="schedule-type"
+          class="text-sm font-bold text-gray-700 ml-1"
+        >
+          When do you want the newsletter?
+          <span class="text-red-500">*</span>
+        </label>
+        <select
+          id="schedule-type"
+          class="select-custom w-full bg-gray-50/80 border border-gray-100 rounded-2xl px-5 py-3.5 text-sm text-gray-500 focus:outline-none focus:ring-4 focus:ring-blue-100 transition-all"
+          required
+        >
+          <option value="immediate">Send immediately</option>
+          <option value="specific">Send on a specific date</option>
+          <option value="recurring">
+            Schedule recurring (weekly)
+          </option>
+        </select>
+      </div>
+
+      <div id="specific-datetime" class="hidden mt-6">
+        <p
+          class="text-[13px] sm:text-sm font-bold text-gray-700 ml-1 mb-3"
+        >
+          Schedule Options
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div class="flex flex-col gap-2">
+            <label
+              for="specific-date"
+              class="text-sm font-bold text-gray-700 ml-1"
+            >
+              Date
+            </label>
+            <input
+              type="date"
+              id="specific-date"
+              class="w-full bg-gray-50/80 border border-gray-100 rounded-2xl px-5 py-3.5 text-sm focus:outline-none focus:ring-4 focus:ring-blue-100 transition-all"
+            />
+          </div>
+          <div class="flex flex-col gap-2">
+            <label
+              for="specific-time"
+              class="text-sm font-bold text-gray-700 ml-1"
+            >
+              Time
+            </label>
+            <input
+              type="time"
+              id="specific-time"
+              class="w-full bg-gray-50/80 border border-gray-100 rounded-2xl px-5 py-3.5 text-sm focus:outline-none focus:ring-4 focus:ring-blue-100 transition-all"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div id="custom-recurring" class="hidden mt-6">
+        <p
+          class="text-[13px] sm:text-sm font-bold text-gray-700 ml-1 mb-3"
+        >
+          Schedule Options
+        </p>
+        <div class="flex flex-col gap-3">
+          <label class="text-sm font-bold text-gray-700 ml-1"
+            >Select day/s</label
+          >
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+            <button type="button" class="weekday-btn" data-day="0">
+              Monday
+            </button>
+            <button type="button" class="weekday-btn" data-day="1">
+              Tuesday
+            </button>
+            <button type="button" class="weekday-btn" data-day="2">
+              Wednesday
+            </button>
+            <button type="button" class="weekday-btn" data-day="3">
+              Thursday
+            </button>
+            <button type="button" class="weekday-btn" data-day="4">
+              Friday
+            </button>
+            <button type="button" class="weekday-btn" data-day="5">
+              Saturday
+            </button>
+            <button type="button" class="weekday-btn" data-day="6">
+              Sunday
+            </button>
+          </div>
+        </div>
+        <div class="mt-4 flex flex-col gap-2">
+          <label
+            for="recurring-time"
+            class="text-sm font-bold text-gray-700 ml-1"
+          >
+            Time
+          </label>
+          <input
+            type="time"
+            id="recurring-time"
+            class="w-full bg-gray-50/80 border border-gray-100 rounded-2xl px-5 py-3.5 text-sm focus:outline-none focus:ring-4 focus:ring-blue-100 transition-all"
+          />
+        </div>
+      </div>
+    </section>
+
+    <div id="message-container" class="hidden"></div>
+
+    <div class="flex flex-col gap-3">
+      <button
+        type="button"
+        id="login-btn"
+        class="w-full bg-black text-white py-4 sm:py-5 rounded-[2rem] font-bold text-xs sm:text-sm tracking-wide hover:scale-[1.01] active:scale-[0.98] transition-all shadow-xl shadow-black/10 flex items-center justify-center gap-2 sm:gap-3"
+      >
+        Login to Generate Newsletter
+      </button>
+      <button
+        type="button"
+        id="submit-btn"
+        class="w-full bg-black text-white py-4 sm:py-5 rounded-[2rem] font-bold text-xs sm:text-sm tracking-wide hover:scale-[1.01] active:scale-[0.98] transition-all shadow-xl shadow-black/10 flex items-center justify-center gap-2 sm:gap-3 hidden"
+      >
+        Create Newsletter
+      </button>
+    </div>
+  </form>
+</main>
