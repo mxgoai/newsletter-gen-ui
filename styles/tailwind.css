@@ -71,14 +71,14 @@ textarea::placeholder {
 }
 
 .weekday-btn:hover {
-  border-color: #3b82f6;
-  color: #2563eb;
+  border-color: #447abc;
+  color: #447abc;
 }
 
 .weekday-btn.active {
-  background: rgba(59, 130, 246, 0.12);
-  border-color: #3b82f6;
-  color: #2563eb;
+  background: rgba(68, 122, 188, 0.12);
+  border-color: #447abc;
+  color: #447abc;
 }
 
 .btn-loading {
@@ -104,7 +104,7 @@ textarea::placeholder {
   position: absolute;
   inset: 0;
   width: 0%;
-  background: linear-gradient(120deg, #dbeafe 0%, #bfdbfe 100%);
+  background: linear-gradient(120deg, #dbe2ef 0%, #99a8b5 100%);
   transition: width 0.4s ease;
 }
 
@@ -122,6 +122,14 @@ textarea::placeholder {
 }
 
 .progress-card.complete .material-symbols-outlined {
+  animation: pop 0.6s ease;
+}
+
+.progress-card.complete + .progress-meta .text-blue-500 {
+  color: #16a34a;
+}
+
+.progress-card.complete + .progress-meta .material-symbols-outlined {
   animation: pop 0.6s ease;
 }
 
@@ -155,8 +163,8 @@ textarea::placeholder {
   width: 2.25rem;
   height: 2.25rem;
   border-radius: 9999px;
-  background: #eff6ff;
-  color: #3b82f6;
+  background: #dbe2ef;
+  color: #447abc;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -176,8 +184,39 @@ textarea::placeholder {
 }
 
 .social-link:hover {
-  color: #3b82f6;
-  border-color: #bfdbfe;
+  color: #447abc;
+  border-color: #99a8b5;
+}
+
+.mobile-collapsible > summary {
+  list-style: none;
+  cursor: pointer;
+}
+
+.mobile-collapsible > summary::-webkit-details-marker {
+  display: none;
+}
+
+.mobile-collapsible > .collapsible-body {
+  display: none;
+}
+
+.mobile-collapsible[open] > .collapsible-body {
+  display: block;
+}
+
+.mobile-collapsible[open] .collapsible-icon {
+  transform: rotate(180deg);
+}
+
+@media (min-width: 640px) {
+  .mobile-collapsible > summary {
+    display: none;
+  }
+
+  .mobile-collapsible > .collapsible-body {
+    display: block;
+  }
 }
 
 .below-fold {

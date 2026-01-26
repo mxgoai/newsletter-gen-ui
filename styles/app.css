@@ -1,10 +1,10 @@
 :root {
   color-scheme: light;
-  --brand-primary: #3b82f6;
-  --brand-primary-strong: #2563eb;
-  --brand-primary-soft: #dbeafe;
-  --brand-primary-soft-2: #bfdbfe;
-  --brand-primary-glow: rgba(59, 130, 246, 0.12);
+  --brand-primary: #447abc;
+  --brand-primary-strong: #447abc;
+  --brand-primary-soft: #dbe2ef;
+  --brand-primary-soft-2: #99a8b5;
+  --brand-primary-glow: rgba(68, 122, 188, 0.12);
   --brand-success: #16a34a;
   --brand-success-strong: #047857;
   --brand-success-bg: rgba(16, 185, 129, 0.12);
@@ -151,6 +151,14 @@ textarea::placeholder {
   animation: pop 0.6s ease;
 }
 
+.progress-card.complete + .progress-meta .text-blue-500 {
+  color: var(--brand-success);
+}
+
+.progress-card.complete + .progress-meta .material-symbols-outlined {
+  animation: pop 0.6s ease;
+}
+
 @keyframes pop {
   0% {
     transform: scale(0.7);
@@ -204,6 +212,37 @@ textarea::placeholder {
 .social-link:hover {
   color: var(--brand-primary);
   border-color: var(--brand-primary-soft-2);
+}
+
+.mobile-collapsible > summary {
+  list-style: none;
+  cursor: pointer;
+}
+
+.mobile-collapsible > summary::-webkit-details-marker {
+  display: none;
+}
+
+.mobile-collapsible > .collapsible-body {
+  display: none;
+}
+
+.mobile-collapsible[open] > .collapsible-body {
+  display: block;
+}
+
+.mobile-collapsible[open] .collapsible-icon {
+  transform: rotate(180deg);
+}
+
+@media (min-width: 640px) {
+  .mobile-collapsible > summary {
+    display: none;
+  }
+
+  .mobile-collapsible > .collapsible-body {
+    display: block;
+  }
 }
 
 .below-fold {

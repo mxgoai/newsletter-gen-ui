@@ -1,26 +1,36 @@
-<main
-  class="order-2 lg:order-none lg:flex-1 bg-white border border-gray-50 rounded-[2rem] sm:rounded-[2.5rem] lg:rounded-[3rem] p-5 sm:p-8 md:p-10 lg:p-12 custom-shadow border-2"
+<div
+  class="order-2 lg:order-none lg:flex-1 flex flex-col gap-4 sm:gap-6 bg-white"
 >
-  <div class="flex items-center justify-between mb-10">
-    <div>
-      <p
-        class="text-[10px] sm:text-[11px] text-gray-400 font-medium uppercase tracking-[0.3em]"
+  <main
+    class="bg-white border-gray-50 rounded-[2rem] sm:rounded-[2.5rem] lg:rounded-[3rem] p-5 sm:p-8 md:p-10 lg:p-12 custom-shadow border-2"
+  >
+    <form id="newsletter-form" class="space-y-8 sm:space-y-10">
+      <div
+        class="progress-wrapper sticky top-0 z-20 bg-white -mx-5 sm:-mx-8 md:-mx-10 lg:-mx-12 px-5 sm:px-8 md:px-10 lg:px-12 py-4"
       >
-        KnowsLetter
-      </p>
-      <h2 class="text-xl sm:text-2xl font-extrabold text-gray-900">
-        Newsletter Generator
-      </h2>
-      <p
-        class="text-[10px] sm:text-[11px] text-gray-400 font-medium mt-1"
-      >
-        Provide your inputs and schedule delivery in minutes.
-      </p>
-    </div>
-  </div>
+        <div
+          id="progress-card"
+          class="progress-card h-3 sm:h-5 bg-blue-50 rounded-full pointer-events-none"
+          aria-hidden="true"
+        >
+          <div id="progress-bar" class="progress-bar"></div>
+        </div>
+        <div
+          class="progress-meta flex items-center gap-2 text-[10px] sm:text-[11px] text-gray-400 font-semibold mt-2"
+        >
+          <span id="progress-percent" class="text-blue-500">0%</span>
+          <span id="progress-status">Not started</span>
+          <span
+            id="progress-check"
+            class="material-symbols-outlined text-green-500 text-sm hidden"
+            aria-hidden="true"
+          >
+            check_circle
+          </span>
+        </div>
+      </div>
 
-  <form id="newsletter-form" class="space-y-8 sm:space-y-10">
-    <section>
+      <section>
       <div class="flex items-center gap-3 mb-6">
         <span class="material-symbols-outlined text-gray-400"
           >edit_note</span
@@ -263,5 +273,6 @@ Format: Bullet points with source links. Highlight urgent compliance items."
         Create Newsletter
       </button>
     </div>
-  </form>
-</main>
+    </form>
+  </main>
+</div>

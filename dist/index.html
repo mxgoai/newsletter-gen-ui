@@ -158,13 +158,13 @@
         ]
       }
     </script>
-    <script type="module" crossorigin src="/assets/index-CorhRjSx.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-C5aUJnLQ.css">
+    <script type="module" crossorigin src="/assets/index-BQwtADcF.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-Bh8mw_jD.css">
   </head>
   <body class="min-h-screen overflow-auto">
     <div class="bg-white min-h-screen flex flex-col">
       <header
-        class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-3 sm:gap-4 px-4 sm:px-6 lg:px-8 py-4 sm:py-6 mb-6 lg:mb-10"
+        class="flex flex-row items-center justify-between gap-3 sm:gap-4 px-4 sm:px-6 lg:px-8 py-4 sm:py-6 mb-6 lg:mb-10"
       >
         <div class="flex flex-wrap items-center gap-3 sm:gap-4">
           <img
@@ -190,16 +190,6 @@
           >
         </div>
         <div class="flex items-center gap-3">
-          <button
-            id="plans-login-btn"
-            class="bg-black text-white px-4 sm:px-6 py-2 sm:py-2.5 rounded-xl flex items-center gap-2 text-xs sm:text-sm font-bold hover:bg-gray-800 transition-all"
-          >
-            <span
-              class="material-symbols-outlined text-sm js-replaced-missing-icon"
-              >login</span
-            >
-            Login
-          </button>
           <div id="user-info" class="hidden relative">
             <button
               type="button"
@@ -215,7 +205,7 @@
             </button>
             <div
               id="profile-menu"
-              class="hidden absolute right-0 mt-3 w-52 sm:w-56 rounded-2xl border border-gray-100 bg-white shadow-xl p-2.5 sm:p-3 z-20"
+              class="hidden absolute right-0 mt-3 w-52 sm:w-56 max-w-[calc(100vw-2rem)] rounded-2xl border border-gray-100 bg-white shadow-xl p-2.5 sm:p-3 z-30"
             >
               <p
                 id="user-email"
@@ -239,33 +229,110 @@
   class="contents lg:flex lg:flex-col lg:gap-6 lg:w-1/4 lg:sticky lg:top-24 lg:self-start"
   aria-label="Highlights"
 >
-  <div
-    id="progress-card"
-    class="order-1 lg:order-none progress-card bg-[#eff6ff] border border-[#dbeafe] rounded-[2rem] sm:rounded-[2.5rem] p-6 sm:p-8 flex items-center justify-center"
+  <details
+    class="order-3 lg:order-none mobile-collapsible sm:hidden"
   >
-    <div id="progress-bar" class="progress-bar"></div>
-    <span
-      class="relative z-10 text-blue-500 font-extrabold text-xl sm:text-2xl flex items-center gap-2"
+    <summary
+      class="collapsible-summary flex items-center justify-between rounded-2xl border border-gray-100 bg-white px-4 py-3 text-sm font-bold text-gray-900 shadow-sm"
     >
-      <span id="progress-percent">0%</span>
+      Highlights
       <span
-        id="progress-status"
-        class="text-xs sm:text-sm font-medium"
-      >
-        Not started
-      </span>
-      <span
-        id="progress-check"
-        class="material-symbols-outlined text-green-500 text-xl hidden"
+        class="material-symbols-outlined collapsible-icon text-gray-400"
         aria-hidden="true"
       >
-        check_circle
+        expand_more
       </span>
-    </span>
-  </div>
+    </summary>
+    <ul
+      class="collapsible-body space-y-4 list-none p-0 m-0 mt-4"
+      role="list"
+    >
+      <li class="feature-card">
+        <div class="feature-icon">
+          <span class="material-symbols-outlined text-xl">
+            auto_awesome
+          </span>
+        </div>
+        <div>
+          <h3
+            class="font-extrabold text-gray-900 text-[14px] sm:text-[15px]"
+          >
+            AI-Powered Generation
+          </h3>
+          <p
+            class="text-[12px] sm:text-[13px] text-gray-400 mt-1 leading-snug"
+          >
+            Generate professional newsletters using advanced AI that
+            understands your industry.
+          </p>
+        </div>
+      </li>
+
+      <li class="feature-card">
+        <div class="feature-icon">
+          <span class="material-symbols-outlined text-xl">
+            schedule
+          </span>
+        </div>
+        <div>
+          <h3
+            class="font-extrabold text-gray-900 text-[14px] sm:text-[15px]"
+          >
+            Automated Scheduling
+          </h3>
+          <p
+            class="text-[12px] sm:text-[13px] text-gray-400 mt-1 leading-snug"
+          >
+            Set it and forget it - schedule weekly newsletters
+            automatically.
+          </p>
+        </div>
+      </li>
+
+      <li class="feature-card">
+        <div class="feature-icon">
+          <span class="material-symbols-outlined text-xl">
+            edit_note
+          </span>
+        </div>
+        <div>
+          <h3
+            class="font-extrabold text-gray-900 text-[14px] sm:text-[15px]"
+          >
+            Custom Prompts
+          </h3>
+          <p
+            class="text-[12px] sm:text-[13px] text-gray-400 mt-1 leading-snug"
+          >
+            Define your content structure, sources, and formatting
+            exactly how you want.
+          </p>
+        </div>
+      </li>
+
+      <li class="feature-card">
+        <div class="feature-icon">
+          <span class="material-symbols-outlined text-xl"> mail </span>
+        </div>
+        <div>
+          <h3
+            class="font-extrabold text-gray-900 text-[14px] sm:text-[15px]"
+          >
+            Direct Delivery
+          </h3>
+          <p
+            class="text-[12px] sm:text-[13px] text-gray-400 mt-1 leading-snug"
+          >
+            Newsletters delivered straight to your inbox - no extra
+            setup needed.
+          </p>
+        </div>
+      </li>
+    </ul>
+  </details>
 
   <ul
-    class="order-3 lg:order-none space-y-4 list-none p-0 m-0"
+    class="order-3 lg:order-none space-y-4 list-none p-0 m-0 hidden sm:block"
     role="list"
   >
     <li class="feature-card">
@@ -351,29 +418,39 @@
     </li>
   </ul>
 </aside>
- <main
-  class="order-2 lg:order-none lg:flex-1 bg-white border border-gray-50 rounded-[2rem] sm:rounded-[2.5rem] lg:rounded-[3rem] p-5 sm:p-8 md:p-10 lg:p-12 custom-shadow border-2"
+ <div
+  class="order-2 lg:order-none lg:flex-1 flex flex-col gap-4 sm:gap-6 bg-white"
 >
-  <div class="flex items-center justify-between mb-10">
-    <div>
-      <p
-        class="text-[10px] sm:text-[11px] text-gray-400 font-medium uppercase tracking-[0.3em]"
+  <main
+    class="bg-white border-gray-50 rounded-[2rem] sm:rounded-[2.5rem] lg:rounded-[3rem] p-5 sm:p-8 md:p-10 lg:p-12 custom-shadow border-2"
+  >
+    <form id="newsletter-form" class="space-y-8 sm:space-y-10">
+      <div
+        class="progress-wrapper sticky top-0 z-20 bg-white -mx-5 sm:-mx-8 md:-mx-10 lg:-mx-12 px-5 sm:px-8 md:px-10 lg:px-12 py-4"
       >
-        KnowsLetter
-      </p>
-      <h2 class="text-xl sm:text-2xl font-extrabold text-gray-900">
-        Newsletter Generator
-      </h2>
-      <p
-        class="text-[10px] sm:text-[11px] text-gray-400 font-medium mt-1"
-      >
-        Provide your inputs and schedule delivery in minutes.
-      </p>
-    </div>
-  </div>
+        <div
+          id="progress-card"
+          class="progress-card h-3 sm:h-5 bg-blue-50 rounded-full pointer-events-none"
+          aria-hidden="true"
+        >
+          <div id="progress-bar" class="progress-bar"></div>
+        </div>
+        <div
+          class="progress-meta flex items-center gap-2 text-[10px] sm:text-[11px] text-gray-400 font-semibold mt-2"
+        >
+          <span id="progress-percent" class="text-blue-500">0%</span>
+          <span id="progress-status">Not started</span>
+          <span
+            id="progress-check"
+            class="material-symbols-outlined text-green-500 text-sm hidden"
+            aria-hidden="true"
+          >
+            check_circle
+          </span>
+        </div>
+      </div>
 
-  <form id="newsletter-form" class="space-y-8 sm:space-y-10">
-    <section>
+      <section>
       <div class="flex items-center gap-3 mb-6">
         <span class="material-symbols-outlined text-gray-400"
           >edit_note</span
@@ -616,8 +693,9 @@ Format: Bullet points with source links. Highlight urgent compliance items."
         Create Newsletter
       </button>
     </div>
-  </form>
-</main>
+    </form>
+  </main>
+</div>
 
       </div>
 
@@ -660,7 +738,70 @@ Format: Bullet points with source links. Highlight urgent compliance items."
         </ul>
       </div>
 
-      <div>
+      <details class="mobile-collapsible sm:hidden">
+        <summary
+          class="collapsible-summary flex items-center justify-between rounded-2xl border border-gray-100 bg-white px-4 py-3 text-sm font-bold text-gray-900 shadow-sm"
+        >
+          FAQ
+          <span
+            class="material-symbols-outlined collapsible-icon text-gray-400"
+            aria-hidden="true"
+          >
+            expand_more
+          </span>
+        </summary>
+        <div class="collapsible-body mt-4">
+          <dl class="space-y-4">
+            <div>
+              <dt class="font-semibold text-gray-900">
+                What does KnowsLetter do?
+              </dt>
+              <dd class="text-sm text-gray-500 mt-1">
+                It creates AI-powered email newsletters from your
+                prompts and sources, then schedules delivery.
+              </dd>
+            </div>
+            <div>
+              <dt class="font-semibold text-gray-900">
+                Is it built for B2B and industry teams?
+              </dt>
+              <dd class="text-sm text-gray-500 mt-1">
+                Yes. It supports B2B newsletter workflows and regulated
+                industries like healthcare and fintech.
+              </dd>
+            </div>
+            <div>
+              <dt class="font-semibold text-gray-900">
+                Can I schedule recurring newsletters?
+              </dt>
+              <dd class="text-sm text-gray-500 mt-1">
+                Yes. You can set weekly recurring schedules and pick the
+                delivery time.
+              </dd>
+            </div>
+            <div>
+              <dt class="font-semibold text-gray-900">
+                Do I control the format and sections?
+              </dt>
+              <dd class="text-sm text-gray-500 mt-1">
+                Yes. You define structure, sections, and formatting in
+                your prompt.
+              </dd>
+            </div>
+            <div>
+              <dt class="font-semibold text-gray-900">
+                Who is it for?
+              </dt>
+              <dd class="text-sm text-gray-500 mt-1">
+                Teams that need fast, consistent newsletters: marketing,
+                healthcare, fintech, and more.
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </details>
+
+      <div class="hidden sm:block">
         <p
           class="text-[10px] sm:text-[11px] text-gray-400 font-semibold uppercase tracking-[0.3em]"
         >
@@ -741,7 +882,7 @@ Format: Bullet points with source links. Highlight urgent compliance items."
         class="absolute -inset-4 sm:-inset-6 bg-blue-200/60 blur-3xl rounded-full"
       ></div>
       <img
-        src="data:image/avif;base64,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"
+        src="/assets/Logo-BzI_m42P.svg"
         alt="MXGo Logo"
         class="w-full max-w-[200px] sm:max-w-[240px] rounded-[2rem] shadow-2xl relative z-10 border border-white/50 bg-white/80 p-5 sm:p-6"
         loading="lazy"
