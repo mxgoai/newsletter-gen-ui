@@ -235,6 +235,32 @@ textarea::placeholder {
   transform: rotate(180deg);
 }
 
+.faq-item > summary {
+  list-style: none;
+  cursor: pointer;
+}
+
+.faq-item > summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item .faq-icon {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.faq-item .faq-icon-open {
+  display: none;
+}
+
+.faq-item[open] .faq-icon-open {
+  display: inline-flex;
+}
+
+.faq-item[open] .faq-icon-closed {
+  display: none;
+}
+
 @media (min-width: 640px) {
   .mobile-collapsible > summary {
     display: none;
