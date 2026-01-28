@@ -2,7 +2,7 @@ import { API_BASE_URL, API_ENDPOINTS } from "../config/api.js";
 import { buildPayload } from "./payload.js";
 import { validateForm } from "./validate.js";
 
-export function handleSuccess(showMessage, data) {
+export function handleSuccess(showMessage, data, showSuccessModal) {
     let message = data.is_scheduled ? "Newsletter scheduled successfully!" : "Newsletter generated successfully!";
     if (data.scheduled_task_ids?.length > 0) {
         message += ` Task IDs: ${data.scheduled_task_ids.join(", ")}`;
@@ -11,6 +11,9 @@ export function handleSuccess(showMessage, data) {
         message += " A sample email has been sent.";
     }
     showMessage(message, "success");
+    if (showSuccessModal) {
+        showSuccessModal(data);
+    }
 }
 
 export function handleError(showMessage, handleLogout, status, data) {
@@ -37,6 +40,7 @@ export function createSubmitNewsletter({
     session,
     setButtonLoading,
     showMessage,
+    showSuccessModal,
     refreshSessionIfNeeded,
     handleLogout,
 }) {
@@ -93,7 +97,9 @@ export function createSubmitNewsletter({
             }
 
             const data = await response.json();
-            response.ok ? handleSuccess(showMessage, data) : handleError(showMessage, handleLogout, response.status, data);
+            response.ok
+                ? handleSuccess(showMessage, data, showSuccessModal)
+                : handleError(showMessage, handleLogout, response.status, data);
         } catch (error) {
             console.error("Error submitting newsletter:", error);
             showMessage("Network error. Please check your connection and try again.", "error");

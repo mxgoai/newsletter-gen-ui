@@ -1,0 +1,294 @@
+:root {
+  color-scheme: light;
+  --brand-primary: #447abc;
+  --brand-primary-strong: #447abc;
+  --brand-primary-soft: #dbe2ef;
+  --brand-primary-soft-2: #99a8b5;
+  --brand-primary-glow: rgba(68, 122, 188, 0.12);
+  --brand-success: #16a34a;
+  --brand-success-strong: #047857;
+  --brand-success-bg: rgba(16, 185, 129, 0.12);
+  --brand-success-border: rgba(16, 185, 129, 0.3);
+  --brand-success-border-2: rgba(34, 197, 94, 0.35);
+  --brand-success-bg-2: rgba(236, 253, 245, 0.9);
+  --brand-success-soft: #bbf7d0;
+  --brand-success-soft-2: #86efac;
+  --brand-danger: #b91c1c;
+  --brand-danger-bg: rgba(239, 68, 68, 0.1);
+  --brand-danger-border: rgba(239, 68, 68, 0.25);
+  --neutral-900: #111827;
+  --neutral-600: #6b7280;
+  --neutral-500: #9ca3af;
+  --neutral-300: #e5e7eb;
+  --neutral-200: #f3f4f6;
+  --neutral-100: #f9fafb;
+  --neutral-0: #ffffff;
+  --shadow-soft: 0 10px 40px -10px rgba(0, 0, 0, 0.04);
+  --shadow-toast: 0 20px 35px -20px rgba(15, 23, 42, 0.35);
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: var(--neutral-200);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--neutral-500);
+  font-size: 0.875rem;
+}
+
+.custom-shadow {
+  box-shadow: var(--shadow-soft);
+}
+
+.message-container {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  z-index: 50;
+  max-width: min(360px, calc(100vw - 2rem));
+  border-radius: 1.25rem;
+  padding: 0.75rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  box-shadow: var(--shadow-toast);
+}
+
+@media (max-width: 640px) {
+  .message-container {
+    right: 1rem;
+    bottom: 1rem;
+  }
+}
+
+.message-container.success {
+  background: var(--brand-success-bg);
+  color: var(--brand-success-strong);
+  border: 1px solid var(--brand-success-border);
+}
+
+.message-container.error {
+  background: var(--brand-danger-bg);
+  color: var(--brand-danger);
+  border: 1px solid var(--brand-danger-border);
+}
+
+.weekday-btn {
+  border: 1px solid var(--neutral-300);
+  background: var(--neutral-100);
+  color: var(--neutral-600);
+  border-radius: 1.5rem;
+  padding: 0.5rem 0.9rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  transition: all 0.2s ease;
+}
+
+.weekday-btn:hover {
+  border-color: var(--brand-primary);
+  color: var(--brand-primary-strong);
+}
+
+.weekday-btn.active {
+  background: var(--brand-primary-glow);
+  border-color: var(--brand-primary);
+  color: var(--brand-primary-strong);
+}
+
+.btn-loading {
+  opacity: 0.7;
+  cursor: progress;
+}
+
+.select-custom {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%236b7280'%3E%3Cpath d='M5.5 7.5 10 12l4.5-4.5' stroke='%236b7280' stroke-width='1.6' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1.25rem center;
+  background-size: 14px;
+  padding-right: 2.75rem;
+}
+
+.progress-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-bar {
+  position: absolute;
+  inset: 0;
+  width: 0%;
+  background: linear-gradient(
+    120deg,
+    var(--brand-primary-soft) 0%,
+    var(--brand-primary-soft-2) 100%
+  );
+  transition: width 0.4s ease;
+}
+
+.progress-card.complete {
+  border-color: var(--brand-success-border-2);
+  background: var(--brand-success-bg-2);
+}
+
+.progress-card.complete .progress-bar {
+  background: linear-gradient(
+    120deg,
+    var(--brand-success-soft) 0%,
+    var(--brand-success-soft-2) 100%
+  );
+}
+
+.progress-card.complete .text-blue-500 {
+  color: var(--brand-success);
+}
+
+.progress-card.complete .material-symbols-outlined {
+  animation: pop 0.6s ease;
+}
+
+.progress-card.complete + .progress-meta .text-blue-500 {
+  color: var(--brand-success);
+}
+
+.progress-card.complete + .progress-meta .material-symbols-outlined {
+  animation: pop 0.6s ease;
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.feature-card {
+  padding: 1.25rem;
+  border-radius: 1.75rem;
+  background: var(--neutral-0);
+  border: 1px solid var(--neutral-200);
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  box-shadow: var(--shadow-soft);
+}
+
+.feature-icon {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 9999px;
+  background: var(--brand-primary-soft);
+  color: var(--brand-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.social-link {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 9999px;
+  border: 1px solid var(--neutral-300);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+  transition: all 0.2s ease;
+}
+
+.social-link:hover {
+  color: var(--brand-primary);
+  border-color: var(--brand-primary-soft-2);
+}
+
+.mobile-collapsible > summary {
+  list-style: none;
+  cursor: pointer;
+}
+
+.mobile-collapsible > summary::-webkit-details-marker {
+  display: none;
+}
+
+.mobile-collapsible > .collapsible-body {
+  display: none;
+}
+
+.mobile-collapsible[open] > .collapsible-body {
+  display: block;
+}
+
+.mobile-collapsible[open] .collapsible-icon {
+  transform: rotate(180deg);
+}
+
+.faq-item > summary {
+  list-style: none;
+  cursor: pointer;
+}
+
+.faq-item > summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item .faq-icon {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.faq-item .faq-icon-open {
+  display: none;
+}
+
+.faq-item[open] .faq-icon-open {
+  display: inline-flex;
+}
+
+.faq-item[open] .faq-icon-closed {
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .mobile-collapsible > summary {
+    display: none;
+  }
+
+  .mobile-collapsible > .collapsible-body {
+    display: block;
+  }
+}
+
+.below-fold {
+  content-visibility: auto;
+  contain-intrinsic-size: 800px;
+}
+
+@media (min-width: 640px) {
+  .feature-card {
+    padding: 1.5rem;
+    border-radius: 2rem;
+  }
+
+  .feature-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .social-link {
+    width: 2.25rem;
+    height: 2.25rem;
+  }
+}
