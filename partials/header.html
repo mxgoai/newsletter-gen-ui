@@ -1,18 +1,19 @@
 <header
-  class="flex flex-row items-center justify-between gap-3 sm:gap-4 px-4 sm:px-6 lg:px-8 py-4 sm:py-6 mb-6 lg:mb-10"
+  class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4 px-4 sm:px-6 lg:px-8 py-4 sm:py-6 mb-6 lg:mb-10"
 >
-  <div class="flex flex-wrap items-center gap-3 sm:gap-4">
+  <div class="flex flex-wrap sm:flex-nowrap items-center">
     <img
       src="/knowsletter-logo.svg"
       alt="KnowsLetter logo"
-      class="h-7 w-7 sm:h-8 sm:w-8"
+      class="h-8 w-8 sm:h-12 sm:w-12"
     />
-    <h1 class="text-xl sm:text-2xl font-extrabold tracking-tighter">
-      KNOWSLETTER
+    <h1 class="text-lg sm:text-2xl font-extrabold tracking-tighter">
+      <span class="text-black">KNOWS</span
+      ><span class="text-[#447abc]">LETTER</span>
     </h1>
-    <div class="h-4 w-[1px] bg-gray-200 hidden sm:block"></div>
+    <div class="h-4 w-[1px] bg-gray-200 hidden sm:block sm:mx-4 mx-2"></div>
     <span
-      class="text-[9px] sm:text-[10px] font-semibold text-gray-400 border border-gray-100 px-2 sm:px-3 py-1 rounded-full bg-gray-50/50"
+      class="w-full sm:w-auto text-[9px] sm:text-[10px] font-semibold text-gray-400 border border-gray-100 px-2 sm:px-3 py-1 rounded-full bg-gray-50/50 sm:text-left text-center sm:mt-0 mt-4"
       >AI-Powered Newsletter Generator by
       <a
         href="https://www.mxgo.ai/"
@@ -24,7 +25,7 @@
       ></span
     >
   </div>
-  <div class="flex items-center gap-3">
+  <div class="flex items-center gap-3 w-full sm:w-auto justify-end absolute top-4 sm:top-6 right-4 sm:right-6 lg:right-8">
     <div id="user-info" class="hidden relative">
       <button
         type="button"

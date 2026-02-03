@@ -152,6 +152,11 @@ export function initApp() {
     }
 
     function init() {
+        const yearEl = document.getElementById("copyright-year");
+        if (yearEl) {
+            yearEl.textContent = String(new Date().getFullYear());
+        }
+
         initializeEventListeners();
         updateScheduleUI(elements, state);
         updateProgressUI(elements, state);
