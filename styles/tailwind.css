@@ -46,13 +46,13 @@ textarea::placeholder {
 }
 
 .message-container.success {
-  background: rgba(16, 185, 129, 0.12);
+  background: #ecfdf5;
   color: #047857;
   border: 1px solid rgba(16, 185, 129, 0.3);
 }
 
 .message-container.error {
-  background: rgba(239, 68, 68, 0.1);
+  background: #fef2f2;
   color: #b91c1c;
   border: 1px solid rgba(239, 68, 68, 0.25);
 }
