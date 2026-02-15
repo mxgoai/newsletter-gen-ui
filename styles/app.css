@@ -8,6 +8,7 @@
   --brand-success: #16a34a;
   --brand-success-strong: #047857;
   --brand-success-bg: rgba(16, 185, 129, 0.12);
+  --brand-success-bg-solid: #ecfdf5;
   --brand-success-border: rgba(16, 185, 129, 0.3);
   --brand-success-border-2: rgba(34, 197, 94, 0.35);
   --brand-success-bg-2: rgba(236, 253, 245, 0.9);
@@ -15,6 +16,7 @@
   --brand-success-soft-2: #86efac;
   --brand-danger: #b91c1c;
   --brand-danger-bg: rgba(239, 68, 68, 0.1);
+  --brand-danger-bg-solid: #fef2f2;
   --brand-danger-border: rgba(239, 68, 68, 0.25);
   --neutral-900: #111827;
   --neutral-600: #6b7280;
@@ -64,13 +66,13 @@ textarea::placeholder {
 }
 
 .message-container.success {
-  background: var(--brand-success-bg);
+  background: var(--brand-success-bg-solid);
   color: var(--brand-success-strong);
   border: 1px solid var(--brand-success-border);
 }
 
 .message-container.error {
-  background: var(--brand-danger-bg);
+  background: var(--brand-danger-bg-solid);
   color: var(--brand-danger);
   border: 1px solid var(--brand-danger-border);
 }
