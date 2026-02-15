@@ -43,9 +43,9 @@
             <span class="text-gray-400">inputs</span>
           </h2>
           <p
-            class="text-[10px] sm:text-[11px] text-gray-400 font-medium"
+            class="text-xs sm:text-sm text-gray-500 font-medium"
           >
-            Define what to generate and how it should look.
+            Define what you want and how it should look.
           </p>
         </div>
       </div>
@@ -55,18 +55,18 @@
           for="prompt"
           class="text-sm font-bold text-gray-700 ml-1"
         >
-          Prompt <span class="text-red-500">*</span>
+          Newsletter Instructions <span class="text-red-500">*</span>
         </label>
         <textarea
           id="prompt"
           class="w-full bg-gray-50/80 border border-gray-100 rounded-2xl px-5 py-4 text-sm focus:outline-none focus:ring-4 focus:ring-blue-100 ring-4 ring-blue-100 transition-all min-h-[160px] sm:min-h-[180px]"
-          placeholder="Create an 800 word newsletter with latest news from healthcare industry and organize by sections:
+          placeholder="Ex: Find latest news from healthcare industry and organize by sections:
 
 1. Regulatory changes: policy updates, State-level healthcare legislation
 2. Clinical updates: Treatment protocol changes, new medical device approvals, patient safety alerts
 3. Risk alerts: Potential compliance issues, security or privacy concerns, lawsuit updates
 
-Format: Bullet points with source links. Highlight urgent compliance items."
+Use bullet points with source links. Highlight urgent compliance items."
           rows="8"
           required
         ></textarea>
@@ -89,6 +89,7 @@ Format: Bullet points with source links. Highlight urgent compliance items."
             type="number"
             id="read-time"
             placeholder="5"
+            value="5"
             min="1"
             class="w-full bg-gray-50/80 border border-gray-100 rounded-2xl px-5 py-3.5 text-sm focus:outline-none focus:ring-4 focus:ring-blue-100 transition-all"
             required
@@ -99,12 +100,12 @@ Format: Bullet points with source links. Highlight urgent compliance items."
             for="sources"
             class="text-sm font-bold text-gray-700 ml-1"
           >
-            Sources (names and/or links)
+            Specific Sources (names and/or links)
           </label>
           <input
             type="text"
             id="sources"
-            placeholder="Modern Healthcare, Healthcare Dive, CMS.gov, FDA.gov, AHA News, Becker's Hospital Review, and state health department bulletins for California, Texas, New York, Florida"
+            placeholder="Ex: Modern Healthcare, Healthcare Dive, CMS.gov, FDA.gov, AHA News, Becker's Hospital Review, and state health department bulletins for California, Texas, New York, Florida"
             class="w-full bg-gray-50/80 border border-gray-100 rounded-2xl px-5 py-3.5 text-sm focus:outline-none focus:ring-4 focus:ring-blue-100 transition-all"
           />
         </div>
@@ -115,12 +116,12 @@ Format: Bullet points with source links. Highlight urgent compliance items."
           for="locations"
           class="text-sm font-bold text-gray-700 ml-1"
         >
-          Geographic Locations
+          Geographic Locations (optional)
         </label>
         <input
           type="text"
           id="locations"
-          placeholder="North America"
+          placeholder="Ex: North America"
           class="w-full bg-gray-50/80 border border-gray-100 rounded-2xl px-5 py-3.5 text-sm focus:outline-none focus:ring-4 focus:ring-blue-100 transition-all"
         />
       </div>
@@ -141,7 +142,7 @@ Format: Bullet points with source links. Highlight urgent compliance items."
             <span class="text-gray-400">schedule</span>
           </h2>
           <p
-            class="text-[10px] sm:text-[11px] text-gray-400 font-medium"
+            class="text-xs sm:text-sm text-gray-500 font-medium"
           >
             Choose when your newsletter should be delivered.
           </p>
@@ -264,7 +265,7 @@ Format: Bullet points with source links. Highlight urgent compliance items."
         data-nosnippet
         class="w-full bg-black text-white py-4 sm:py-5 rounded-[2rem] font-bold text-xs sm:text-sm tracking-wide hover:scale-[1.01] active:scale-[0.98] transition-all shadow-xl shadow-black/10 flex items-center justify-center gap-2 sm:gap-3"
       >
-        Login to Generate Newsletter
+        Login to Create Newsletter
       </button>
       <button
         type="button"

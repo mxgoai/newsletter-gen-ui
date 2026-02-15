@@ -3,7 +3,7 @@ import { buildPayload } from "./payload.js";
 import { validateForm } from "./validate.js";
 
 export function handleSuccess(showMessage, data, showSuccessModal) {
-    let message = data.is_scheduled ? "Newsletter scheduled successfully!" : "Newsletter generated successfully!";
+    let message = data.is_scheduled ? "Newsletter scheduled successfully!" : "Newsletter created successfully!";
     if (data.scheduled_task_ids?.length > 0) {
         message += ` Task IDs: ${data.scheduled_task_ids.join(", ")}`;
     }
